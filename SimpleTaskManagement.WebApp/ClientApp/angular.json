@@ -72,11 +72,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "SimpleTaskManagement.WebApp:build:production"
+              "buildTarget": "SimpleTaskManagement.WebApp:build:production"
             },
             "development": {
-              "browserTarget": "SimpleTaskManagement.WebApp:build:development",
-              "proxyConfig": "proxy.conf.js"
+              "proxyConfig": "proxy.conf.js",
+              "buildTarget": "SimpleTaskManagement.WebApp:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -84,7 +84,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SimpleTaskManagement.WebApp:build"
+            "buildTarget": "SimpleTaskManagement.WebApp:build"
           }
         },
         "test": {
