@@ -1,6 +1,12 @@
-<body>
-  <app-nav-menu></app-nav-menu>
-  <main class="container">
-    <router-outlet></router-outlet>
-  </main>
-</body>
+<mat-toolbar>
+<mat-toolbar-row>
+  <span>Simple Task Management</span>
+  <span class="example-spacer"></span>
+  <button mat-button routerLink="/ToDoList">To Do list</button>
+  <button mat-button routerLink="/Notes">Notes</button>
+  <button mat-button routerLink="/Alarms">Alarms</button>
+  <button mat-button routerLink="/Reminders">Reminders</button>
+</mat-toolbar-row>
+</mat-toolbar>
+<router-outlet>
+</router-outlet>
