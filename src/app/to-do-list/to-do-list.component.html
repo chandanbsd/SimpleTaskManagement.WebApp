@@ -1,0 +1,58 @@
+<div class="to-do-list-page">
+  <mat-card class="add-to-do-card">
+    <mat-card-header>
+      <h2>Add a new to do</h2>
+    </mat-card-header>
+    <form class="add-to-do-group" [formGroup]='addToDoFg'>
+      <mat-form-field>
+        <mat-label>One line description of the task:</mat-label>
+        <input matInput type="text" width="80vw" required formControlName="name"/>
+      </mat-form-field>
+      <button mat-fab extended color="primary" type="submit" (click)="addToDo()">
+        <mat-icon>add_circle</mat-icon>
+        Add
+      </button>
+    </form>
+  </mat-card>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      List of to dos
+    </mat-expansion-panel-header>
+
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="priority">
+        <mat-header-cell *matHeaderCellDef> Priority</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.priority }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.name }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="location">
+        <mat-header-cell *matHeaderCellDef> Location</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.location }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef> Description</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.description }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="deadlineDate">
+        <mat-header-cell *matHeaderCellDef> Deadline</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.deadlineDate }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="reminderDate">
+        <mat-header-cell *matHeaderCellDef> Reminder</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{ element.reminderDate }}</mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </mat-expansion-panel>
+</div>
